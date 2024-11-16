@@ -1,0 +1,62 @@
+version: '3.8'
+
+networks:
+  common-network:
+    driver: bridge
+
+services:
+  auth-service:
+    build: auth-service
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/user_db
+    networks:
+      - common-network
+    volumes:
+      - ./auth-service:/app
+
+  chat-service:
+    build: chat-service
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/user_db
+    networks:
+      - common-network
+    volumes:
+      - ./chat-service:/app
+
+  user-service:
+    build: user-service
+    ports:
+      - "5002:5002"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/user_db
+    networks:
+      - common-network
+    volumes:
+      - ./user-service:/app
+
+  gateway-service:
+    build: gateway-service
+    ports:
+      - "5003:5003"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/gateway_db
+    networks:
+      - common-network
+    volumes:
+      - ./gateway-service:/app
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - common-network
+
+volumes:
+  mongo_data:

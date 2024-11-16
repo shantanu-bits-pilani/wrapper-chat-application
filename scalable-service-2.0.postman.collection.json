@@ -1,0 +1,507 @@
+{
+  "info": {
+    "name": "scalable-service-2.0",
+    "_postman_id": "12345-67890-abcdef",
+    "description": "Collection for scalable-service-2.0 APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "gateway-service",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"user\", \"password\": \"pass\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5003/api/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"user\", \"password\": \"pass\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5003/api/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "login"]
+            }
+          }
+        },
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"sender\": \"user1\", \"receiver\": \"user2\", \"message\": \"Hello\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5003/api/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "send"]
+            }
+          }
+        },
+        {
+          "name": "Get Messages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/messages/user2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "messages", "user2"]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"newuser\", \"email\": \"newuser@example.com\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5003/api/create",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "create"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "profile"]
+            }
+          }
+        },
+        {
+          "name": "Get Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Send Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/send-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "send-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Accept Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/accept-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "accept-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Withdraw Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/withdraw-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "withdraw-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Get Friends",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5003/api/friends",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5003",
+              "path": ["api", "friends"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "auth-service",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"user\", \"password\": \"pass\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"user\", \"password\": \"pass\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Get Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["users"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "chat-service",
+      "item": [
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"sender\": \"user1\", \"receiver\": \"user2\", \"message\": \"Hello\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5001/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5001",
+              "path": ["send"]
+            }
+          }
+        },
+        {
+          "name": "Get Messages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5001/messages/user2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5001",
+              "path": ["messages", "user2"]
+            }
+          }
+        },
+        {
+          "name": "Get All Messages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5001/get-all-messages",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5001",
+              "path": ["get-all-messages"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user-service",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"newuser\", \"email\": \"newuser@example.com\"}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/create",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["create"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["profile"]
+            }
+          }
+        },
+        {
+          "name": "Send Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/send-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["send-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Accept Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/accept-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["accept-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Withdraw Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/withdraw-request/username",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["withdraw-request", "username"]
+            }
+          }
+        },
+        {
+          "name": "Get Friends",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-logged-in-username",
+                "value": "user1"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/friends",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["friends"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
